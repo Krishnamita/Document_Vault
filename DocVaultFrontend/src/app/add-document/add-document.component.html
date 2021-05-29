@@ -21,23 +21,24 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label for="category">Category</label>
-                                <select name="category" formControlName="category" class="form-control" ngModel="images"
-                                    ng-required=true>
+                                <select name="category" formControlName="category" class="form-control"
+                                    required>
                                     <option value="images">Images</option>
                                     <option value="documents">Documents</option>
+                                    <option value="videos">Videos</option>
                                     <option value="others">Others</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="image">Upload Image</label><small class="form-text text-muted">Max Size
-                                3MB</small>
+                            <div class="col-md-12">
+                                <label for="image">Upload Document</label><small class="form-text text-muted">Max Size
+                                    10MB</small>
+                                <input type="file" name="file" class="form-control" (change)="onFileChanged($event)"
+                                    required>
+                                    <br>
+                                
 
-                            <div class="container row">
-                                <div class="col-md-12">
-                                    <input type="file" name="file" class="form-control" (change)="onFileChanged($event)"
-                                        required>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -49,9 +50,12 @@
                 </form>
             </div>
             <div [hidden]="!submitted">
-                <h6 style="text-align:center ;">{{message}}</h6>
-                <button style="margin: 5% 30% 10% 40%;" (click)="addDocForm()" class='btn btn-info'>Add
-                    Documents Again</button>
+                <br>
+                <h5 class="wait" style="font-style: italic; text-align: center; color: darkblue;">{{waitmessage}}</h5>
+                <h4 style="text-align:center;">{{message}}</h4>
+                <p style="text-align:center;">{{info}}</p>
+                <button style="margin: 5% 30% 10% 40%;" (click)="addDocForm()" class='btn btn-primary'>Add
+                More Documents</button>
             </div>
         </div>
     </div>

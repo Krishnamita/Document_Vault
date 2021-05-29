@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlobDemoApplication {
+public class DocVaultApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlobDemoApplication.class, args);
+		SpringApplication.run(DocVaultApplication.class, args);
 
 		/**
 		 * The class name of application context that will be used by default for non-web

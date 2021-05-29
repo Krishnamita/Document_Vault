@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>BlobDemo</artifactId>
+	<artifactId>DocVault</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BlobDemo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>DocVault</name>
+	<description>Document Vault using Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>

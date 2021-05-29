@@ -25,6 +25,8 @@ import { DetailsComponent } from './details/details.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DashnavbarComponent } from './dashnavbar/dashnavbar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule, NgxPaginationModule
+    FormsModule, ReactiveFormsModule, NgxPaginationModule,
+    NgxSpinnerModule
+
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
