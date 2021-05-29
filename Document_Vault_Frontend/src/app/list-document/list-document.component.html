@@ -1,0 +1,77 @@
+<section id="actions" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a routerLink="/details" class="btn btn-primary btn-block" style="color: white;">Document Details </a>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="searchValue" placeholder="Search Documents...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- DATA -->
+<section id="data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Document Summary</h4>
+                    </div>
+                    <div style="overflow-x: auto; margin-bottom: 2%;">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-dark" style="text-align: center;">
+                                <tr>
+
+                                    <th>TITLE</th>
+                                    <th>DOCNAME</th>
+                                    <th>CREATED AT</th>
+                                    <th>DOWNLOAD</th>
+                                    <th>DELETE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="text-align: center;" *ngFor="let d of docs | searchfilter : searchValue | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 4,
+                                                      currentPage: page,
+                                                      totalItems: totalRec }">
+
+                                    <td> {{d.title}} </td>
+                                    <td> {{d.docName}}</td>
+                                    <td> {{d.createdAt | date : 'full'}} </td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)=getDocs(d)>
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <i class="fas fa-trash" (click)=delete(d)></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center">
+                            <pagination-controls id="listing_pagination"  (pageChange)="page = $event">
+                            </pagination-controls>
+                        </div>
+                    </div>
+
+                    <div *ngIf="docs.length === 0">
+                        <h5 style="text-align:center;"> There are no documents to display, please add the documents!
+                        </h5>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
