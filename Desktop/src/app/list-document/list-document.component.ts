@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Docs, DocserviceService } from '../docservice.service';
-import { saveAs } from 'file-saver';
+import { saveAs } from 'file-saver-es';
 
 
 @Component({
@@ -14,6 +14,8 @@ export class ListDocumentComponent implements OnInit {
   docs : Docs[];
   doclist: any;
   searchValue: string;
+  totalRec:number;
+  page: number = 1;
   constructor(private docservice: DocserviceService, private router: Router) {
   }
 
@@ -21,6 +23,14 @@ export class ListDocumentComponent implements OnInit {
     this.docservice.getAllDocs().subscribe(
       response => this.handleSuccessfulResponse(response),
     );
+  }
+
+  getDocList(){
+    this.docservice.getAllDocs().subscribe(response=>{
+      this.doclist=response;
+      this.totalRec = this.doclist.length;
+
+    });
   }
 
   getDocs(docs : Docs){
@@ -40,21 +50,9 @@ export class ListDocumentComponent implements OnInit {
         alert(data);
       });
     }
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/documents']);
   }
 
-  // updateDoc(updateDoc: Docs): any {
-  //   this.router.navigate(['/update-component'], { state: { updateDoc } });
-  // }
-  
-  updateDoc(id: number) {
-    this.docservice.getDoc(id)
-      .subscribe(
-        data => {
-          this.doclist = data
-        },
-        error => console.log(error));
-  }
  
 }
 

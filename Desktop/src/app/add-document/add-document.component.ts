@@ -36,9 +36,9 @@ export class AddDocumentComponent implements OnInit {
   }
 
   saveDoc(submitForm: FormGroup): any {
-    const user = submitForm.value;
+    const details = submitForm.value;
     const formData = new FormData();
-    formData.append('user', JSON.stringify(user));
+    formData.append('details', JSON.stringify(details));
     formData.append('file', this.file);
     this.submitted = true;
     this.docservice.addDoc(formData).subscribe((data) => {

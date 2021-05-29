@@ -24,6 +24,7 @@ import { SearchfilterPipe } from './searchfilter.pipe';
 import { DetailsComponent } from './details/details.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DashnavbarComponent } from './dashnavbar/dashnavbar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { DashnavbarComponent } from './dashnavbar/dashnavbar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule, NgxPaginationModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

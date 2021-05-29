@@ -15,17 +15,17 @@ font-size:30px;
 
 
 .main-menu:hover,nav.main-menu.expanded {
-width:250px;
-overflow:visible;
+width:200px;
+overflow:hidden;
 }
 
 .main-menu {
 background:#212121;
 border-right:1px solid #e5e5e5;
 position:absolute;
-top:10%;
+top:8.8%;
 bottom:0%;
-height:90%;
+height:100%;
 left:0;
 width:60px;
 overflow:hidden;

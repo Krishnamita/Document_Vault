@@ -14,6 +14,8 @@ export class DetailsComponent implements OnInit {
     docs : Docs[];
     doclist: any;
     searchValue: string;
+   totalRec: number;
+   page: number = 1;
     constructor(private docservice: DocserviceService, private router: Router) {
     }
   
@@ -23,6 +25,14 @@ export class DetailsComponent implements OnInit {
       );
     }
   
+  getDocList() {
+    this.docservice.getAllDocs().subscribe(response => {
+      this.doclist = response;
+      this.totalRec = this.doclist.length;
+
+    });
+  }
+
     getDocs(docs : Docs){
       this.docservice.getDoc(docs.id).subscribe(
         (blob => saveAs(blob, docs.docName))
