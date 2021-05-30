@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DatePipe } from '@angular/common';
+
 
 
 @Injectable({
@@ -21,7 +21,7 @@ export class DocserviceService {
   public addDoc(formdata: FormData): Observable<any> {
     console.log("in service add");
     console.log(formdata);
-    return this.httpService.post("http://localhost:8777/doc/uploadFiles", formdata, { observe: 'response', reportProgress: true  });
+    return this.httpService.post("http://localhost:8777/doc/uploadFiles", formdata, { observe: 'response' });
 
   }
 
@@ -30,9 +30,9 @@ export class DocserviceService {
     return this.httpService.get<Docs[]>('http://localhost:8777/doc/getFiles');
   }
 
-  public onUpdate(formdata: FormData, id) {
+  public editDoc(formdata: FormData, id: number) {
     console.log("ins service update");
-    return this.httpService.put("http://localhost:8777/doc/UpdateDoc/" + id, formdata, { observe: 'response' });
+    return this.httpService.put("http://localhost:8777/doc/UpdateDoc/" + id , formdata , { observe: 'response' });
   }
 
   public delete(id: number) {
@@ -62,7 +62,9 @@ export class Docs {
   docType: string;
   docData: string;
   createdAt : Date;
-  constructor(id: number, title: string, category: string, docName: string, docType: string, docData: string, createdAt: Date) {
+  file : File;
+
+  constructor(id: number, title: string, category: string, docName: string, docType: string, docData: string, createdAt: Date, file: File) {
     this.id = id;
     this.title = title;
     this.category = category;
@@ -70,5 +72,7 @@ export class Docs {
     this.docType = docType;
     this.docData = docData;
     this.createdAt = createdAt;
+    this.file = file;
+
   }
 }

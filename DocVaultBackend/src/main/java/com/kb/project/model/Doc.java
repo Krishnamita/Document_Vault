@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity /**Specifies that the class is an entity. This annotation is applied to the entity class.**/
@@ -24,15 +25,17 @@ public class Doc {
 	
 	@Column(name = "created_at") /**The name of the column. Defaults to  the property or field name.**/
 	private Date createdAt;
+
+
 	private byte[] data;
+	
 	@Lob /** Specifies that a persistent property or field should be persisted as a large object to a database-supported large object type.private byte[] data;**/
 	
-	
+	@PreUpdate
 	@PrePersist /** Specifies a callback method for the corresponding  lifecycle event.**/ 
 	  void createdAt() {
 	    this.createdAt = new Date();
 	  }
-	
 
 	public Date getCreatedAt() {
 		return createdAt;

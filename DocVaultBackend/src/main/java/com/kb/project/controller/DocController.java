@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,6 +72,21 @@ public class DocController {
 		//System.out.println("in get console");
 		List<Doc> doc = docStorageService.getFiles();
 		return new ResponseEntity<List<Doc>>(doc,new HttpHeaders(),HttpStatus.OK);//List of all documents are displayed
+	}
+	
+	@PutMapping(value="/UpdateDoc/{id}", consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
+	public Doc UpdateDoc(@RequestParam("file") MultipartFile file,
+    		@RequestParam("details") String details , @PathVariable Integer id ) throws IOException, InvalidDetailsException {
+		/**indicates that a method parameter should be bound to a web request parameter.**/
+			Doc doc = docStorageService.updateFile(file,details, id);  //File and user will be saved
+			if(doc!=null)
+	    	{
+	    		return doc;    //Returns Uploaded Document
+	    	}
+	    	else
+	    	{
+	    		throw new InvalidDetailsException("Document Not uploaded");
+	    	}
 	}
 	
 		

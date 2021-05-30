@@ -13,7 +13,7 @@
 <body>
     <app-sidebar></app-sidebar>
     <app-dashnavbar></app-dashnavbar>
-    
+
 
     <!-- HEADER -->
     <header id="main-header" class="py-2 bg-info text-white">
@@ -58,8 +58,9 @@
 
                                         <th>TITLE</th>
                                         <th>DOCNAME</th>
-                                        <th>CREATED AT</th>
+                                        <th>LAST MODIFIED AT</th>
                                         <th>DOWNLOAD</th>
+                                        <th>EDIT</th>
                                         <th>DELETE</th>
 
                                     </tr>
@@ -77,6 +78,10 @@
                                             <button class="btn btn-info" (click)=getDocs(d)>
                                                 <i class="fas fa-download"></i> Download
                                             </button>
+                                        </td>
+                                        <td>
+                                            <a href="#"data-toggle="modal" data-target="#editPostModal" (click)=update(d)>
+                                                <i class="fas fa-edit"></i> </a>
                                         </td>
                                         <td>
                                             <i class="fas fa-trash" (click)=delete(d)></i>
@@ -116,7 +121,75 @@
     </section>
 
     <!-- MODALS -->
+    <!-- Edit -->
+        <div class="modal fade" id="editPostModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title">Edit Document</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div [hidden]="submitted">
+                        <form [formGroup]="editForm">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label for="id">ID</label>
+                                        <input type="text" id="id" class="form-control" formControlName="id" data-toggle="tooltip"
+                                       readonly
+                                         />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label for="title">Title</label>
+                                        <input type="text" id="title" class="form-control" formControlName="title"
+                                            data-toggle="tooltip" placeholder="Enter title" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label for="category">Category</label>
+                                        <select name="category" formControlName="category" class="form-control"
+                                            required>
+                                            <option value="images">Images</option>
+                                            <option value="documents">Documents</option>
+                                            <option value="videos">Videos</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label for="image">Upload Document</label><small
+                                            class="form-text text-muted">Max Size
+                                            10MB</small>
+                                        <input type="file" name="file" class="form-control" formcontrolname="file"
+                                            (change)="onFileChanged($event)" required>
+                                        <br>
 
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success" [disabled]="!editForm.valid" value="Save Changes"
+                                    (click)="updateDoc(editForm)"> 
+                            </div>
+                        </form>
+                    </div>
+                    <div [hidden]="!submitted">
+                        <br>
+                        <h5 class="wait" style="font-style: italic; text-align: center; color: darkblue;">
+                            {{waitmessage}}</h5>
+                        <h4 style="text-align:center;">{{message}}</h4>
+                        <p style="text-align:center;">{{info}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- ADD POST MODAL -->
     <app-add-document></app-add-document>
 

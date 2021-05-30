@@ -48,6 +48,28 @@ public class DocService {
 	  return docRepository.findAll(); //To get list of documents
   }
     
+  public Doc updateFile(MultipartFile file, String details, Integer id) throws IOException {
+	  Doc doc = new Doc();
+	  doc.setId(id);
+	  try {
+			doc = new ObjectMapper().readValue(details, Doc.class);
+		} catch (JsonMappingException e) {
+					e.printStackTrace();
+		} catch (JsonProcessingException e) {
+				e.printStackTrace();
+		} 
+		try {
+			doc.setData(file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	  doc.setDocName(file.getOriginalFilename());
+	  doc.setDocType(file.getContentType());
+	  docRepository.save(doc); 
+	  return doc;   //Save file
+	 
+  }
+  
   public String deleteDoc(int id) {
 		docRepository.deleteById(id);
 		return "Successfully Deleted!"; //Delete the document

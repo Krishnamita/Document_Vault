@@ -29,7 +29,7 @@ export class AddDocumentComponent implements OnInit {
     this.submitted=false;
     this.reactiveForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]),
-      category: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required)
     });
   }
 
