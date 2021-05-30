@@ -1,0 +1,59 @@
+/* body {
+    background: #333;
+    color: #fff;
+  }
+  
+  .navbar {
+    border-bottom: #e8ecee 3px solid;
+    opacity: 0.8;
+  }
+  
+  #home-section {
+    background: url(../../assets/Images/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 700px;
+  }
+  
+  #home-section .dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  #home-section .home-inner {
+    padding-top: 200px;
+    padding-left: 25%;
+  
+  }
+  
+  #home-section .card-form {
+    opacity: 0.8;
+    border-radius: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 150px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+   */
+  
+   input:disabled,
+   input[disabled] {
+     cursor: not-allowed !important;
+   }
+   
+   select:disabled,
+   select[disabled] {
+     cursor: not-allowed !important;
+   }
+   textarea:disabled,
+   textarea[disabled] {
+     cursor: not-allowed !important;
+   }
+  

@@ -1,0 +1,93 @@
+<html>
+
+<body>
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a routerLink="/home">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Home
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a (click)="toDash()">
+                    <i class="fa fa-laptop fa-2x"></i>
+                    <span class="nav-text">
+                        Dashboard
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a (click)="toDoc()">
+                    <i class="fa fas fa-file-alt fa-2x"></i>
+                    <span class="nav-text">
+                        Documents
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a (click)="toDetails()">
+                    <i class="fa fas fa-list-alt fa-2x"></i>
+                    <span class="nav-text">
+                        Details
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/profile">
+                    <i class="fa fas fa-user fa-2x"></i>
+                    <span class="nav-text">
+                        Profile
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/settings">
+                    <i class="fa fas fa-cog fa-2x"></i>
+                    <span class="nav-text">
+                        Settings
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/faq">
+                    <i class="fa fas fa-question-circle fa-2x"></i>
+                    <span class="nav-text">
+                        FAQ's
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/about-us">
+                    <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        About Us
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/contact">
+                    <i class="fa fas fa-envelope fa-2x"></i>
+                    <span class="nav-text">
+                        Contact Us
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/home">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Log Out
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>
