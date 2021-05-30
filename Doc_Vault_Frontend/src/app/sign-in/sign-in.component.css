@@ -1,4 +1,4 @@
-/* body {
+body {
     background: #333;
     color: #fff;
   }
@@ -41,19 +41,4 @@
     min-height: 150px;
     background: rgba(0, 0, 0, 0.7);
   }
-   */
-  
-   input:disabled,
-   input[disabled] {
-     cursor: not-allowed !important;
-   }
    
-   select:disabled,
-   select[disabled] {
-     cursor: not-allowed !important;
-   }
-   textarea:disabled,
-   textarea[disabled] {
-     cursor: not-allowed !important;
-   }
-  
