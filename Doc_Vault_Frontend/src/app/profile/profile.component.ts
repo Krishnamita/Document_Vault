@@ -17,9 +17,16 @@ export class ProfileComponent implements OnInit {
     console.log(localStorage)
     this.userId = Number(localStorage.getItem('userId'));
     
+    this.docservice.getUser(this.userId).subscribe(
+      response => this.handleSuccessfulResponse(response)
+    )
+    }
+  handleSuccessfulResponse(response) {
+    this.user = response;
   }
   toDash() {
     this.userId = Number(localStorage.getItem('userId'));
     this.router.navigate(['/dashboard', this.userId]);
   }
+
 }

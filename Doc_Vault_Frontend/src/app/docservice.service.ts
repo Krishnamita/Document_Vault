@@ -64,6 +64,11 @@ export class DocserviceService {
     return this.httpService.delete("http://localhost:8777/doc/DeleteDoc/" + id, { headers, responseType: 'text' });
   }
 
+  public getUser(userId: number){
+    console.log("in getuser service");
+    return this.httpService.get('http://localhost:8777/doc/getUser/'+userId);
+  }
+
   public count() {
     console.log("in service count");
     const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
