@@ -57,7 +57,7 @@ export class ListDocumentComponent implements OnInit {
         alert(data);
       });
     }
-    this.router.navigate(['/documents']);
+    this.router.navigate(['/documents', this.userId]);
   }
 
  
